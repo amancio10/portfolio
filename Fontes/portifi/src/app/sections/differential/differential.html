@@ -1,0 +1,52 @@
+@let t = language.t().differential;
+
+<section class="relative scroll-mt-28" id="diferencial">
+  <div
+    class="bg-linear-to-br from-surface-container-low via-surface-container to-surface-container-lowest border border-blue-500/40 rounded-3xl p-8 sm:p-12 relative overflow-hidden shadow-2xl"
+  >
+    <div
+      class="absolute -bottom-10 -right-10 w-80 h-80 bg-blue-500/15 blur-[100px] rounded-full pointer-events-none"
+    ></div>
+    <div class="max-w-3xl space-y-6 relative z-10">
+      <div
+        class="inline-flex items-center gap-2 bg-surface-container-highest px-4 py-1.5 rounded-full text-blue-300 border border-blue-500/30 font-label-sm text-label-sm uppercase font-semibold shadow-[0_0_12px_rgba(0,119,255,0.2)]"
+      >
+        <span class="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
+        <span>{{ t.badge }}</span>
+      </div>
+
+      <h2
+        class="font-headline-xl text-headline-xl-mobile sm:text-headline-xl font-bold text-primary tracking-tight"
+      >
+        {{ t.title }}<span class="text-sky-400">{{ t.titleAccent }}</span>
+      </h2>
+
+      <p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+        {{ t.bioBefore }}<strong class="text-blue-300">{{ t.bioStrong }}</strong
+        >{{ t.bioAfter }}
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+        @for (style of styles; track style.icon; let i = $index) {
+          <div
+            class="bg-surface-container-low/90 border border-blue-500/30 rounded-2xl p-5 space-y-2 transition-all"
+            [class]="style.cardClass"
+          >
+            <div
+              class="w-9 h-9 rounded-full flex items-center justify-center"
+              [class]="style.iconClass"
+            >
+              <span class="material-symbols-outlined text-lg" aria-hidden="true">{{
+                style.icon
+              }}</span>
+            </div>
+            <h4 class="font-headline-md text-sm font-bold" [class]="style.titleClass">
+              {{ t.cards[i].title }}
+            </h4>
+            <p class="font-body-sm text-xs text-on-surface-variant">{{ t.cards[i].text }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

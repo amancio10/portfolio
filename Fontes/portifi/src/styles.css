@@ -1,0 +1,112 @@
+/*
+ * Material Symbols ships an unlayered `font-size: 24px` rule, which would beat Tailwind's layered
+ * utilities. Importing it into a layer declared first lets classes like `text-lg` size the icons.
+ */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block')
+layer(icons);
+@import 'tailwindcss';
+
+@theme {
+  --color-surface-variant: #1e293b;
+  --color-background: #0a0f1d;
+  --color-on-secondary-container: #dbeafe;
+  --color-surface-tint: #00a2ff;
+  --color-on-error-container: #ffdad6;
+  --color-inverse-on-surface: #1e293b;
+  --color-outline: #3b82f6;
+  --color-primary: #f0f7ff;
+  --color-surface: #0a0f1d;
+  --color-primary-fixed-dim: #38bdf8;
+  --color-secondary: #38bdf8;
+  --color-surface-container-lowest: #060913;
+  --color-on-error: #690005;
+  --color-on-tertiary: #ffffff;
+  --color-surface-container-low: #0f172a;
+  --color-primary-container: #00a2ff;
+  --color-on-surface-variant: #94a3b8;
+  --color-surface-dim: #0a0f1d;
+  --color-error: #ffb4ab;
+  --color-on-background: #f0f7ff;
+  --color-on-tertiary-fixed-variant: #1d4ed8;
+  --color-inverse-surface: #f0f7ff;
+  --color-on-surface: #f0f7ff;
+  --color-primary-fixed: #60a5fa;
+  --color-secondary-fixed-dim: #38bdf8;
+  --color-surface-container: #131e36;
+  --color-on-secondary: #082f49;
+  --color-surface-container-highest: #1e2d4a;
+  --color-tertiary: #93c5fd;
+  --color-on-secondary-fixed: #0c4a6e;
+  --color-tertiary-container: #1d4ed8;
+  --color-on-tertiary-fixed: #1e3a8a;
+  --color-on-primary-fixed: #0f172a;
+  --color-tertiary-fixed: #bfdbfe;
+  --color-surface-bright: #1e2d4a;
+  --color-secondary-container: #0284c7;
+  --color-on-secondary-fixed-variant: #0369a1;
+  --color-surface-container-high: #19243e;
+  --color-on-primary-fixed-variant: #1e40af;
+  --color-outline-variant: #1e3a5f;
+  --color-secondary-fixed: #7dd3fc;
+  --color-on-primary-container: #022c5e;
+  --color-error-container: #93000a;
+  --color-inverse-primary: #0284c7;
+  --color-on-tertiary-container: #eff6ff;
+  --color-tertiary-fixed-dim: #93c5fd;
+  --color-on-primary: #031738;
+
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.75rem;
+  --radius-3xl: 2.25rem;
+
+  --font-headline-xl: 'Space Grotesk', sans-serif;
+  --font-headline-lg: 'Space Grotesk', sans-serif;
+  --font-headline-md: 'Space Grotesk', sans-serif;
+  --font-label-md: 'Space Grotesk', sans-serif;
+  --font-label-sm: 'Space Grotesk', sans-serif;
+  --font-code-stream: 'Courier Prime', monospace;
+  --font-body-lg: 'Courier Prime', monospace;
+  --font-body-md: 'Courier Prime', monospace;
+  --font-body-sm: 'Courier Prime', monospace;
+
+  --text-headline-xl: 44px;
+  --text-headline-xl--line-height: 52px;
+  --text-headline-xl--letter-spacing: -0.04em;
+  --text-headline-xl--font-weight: 700;
+  --text-headline-xl-mobile: 32px;
+  --text-headline-xl-mobile--line-height: 40px;
+  --text-headline-xl-mobile--letter-spacing: -0.03em;
+  --text-headline-xl-mobile--font-weight: 700;
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.02em;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-lg-mobile: 24px;
+  --text-headline-lg-mobile--line-height: 32px;
+  --text-headline-lg-mobile--letter-spacing: -0.02em;
+  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-md: 20px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--letter-spacing: -0.01em;
+  --text-headline-md--font-weight: 600;
+  --text-code-stream: 13px;
+  --text-code-stream--line-height: 20px;
+  --text-code-stream--letter-spacing: 0.02em;
+  --text-code-stream--font-weight: 700;
+  --text-body-lg: 16px;
+  --text-body-lg--line-height: 26px;
+  --text-body-md: 14px;
+  --text-body-md--line-height: 22px;
+  --text-body-sm: 12px;
+  --text-body-sm--line-height: 18px;
+  --text-body-sm--letter-spacing: 0.01em;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.08em;
+  --text-label-md--font-weight: 600;
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 14px;
+  --text-label-sm--letter-spacing: 0.12em;
+  --text-label-sm--font-weight: 700;
+}

@@ -1,0 +1,115 @@
+@let t = language.t().stack;
+
+<section class="space-y-6 scroll-mt-28" id="stack">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-2">
+    <div>
+      <span class="font-code-stream text-code-stream text-blue-400"
+        >// ENGINE_CAPABILITIES &amp; CORE_STACK</span
+      >
+      <h2
+        class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg font-bold text-primary"
+      >
+        {{ t.title }}
+      </h2>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant max-w-md">{{ t.intro }}</p>
+  </div>
+
+  <div
+    class="bg-surface-container-low/80 border border-blue-500/30 rounded-3xl p-6 sm:p-8 backdrop-blur-sm shadow-xl space-y-6"
+  >
+    <div
+      class="flex flex-col md:flex-row items-start md:items-center justify-between pb-4 border-b border-blue-500/20 gap-3"
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-10 h-10 shrink-0 rounded-2xl bg-surface-container-high border border-blue-400/60 flex items-center justify-center text-blue-400 shadow-[0_0_15px_rgba(0,119,255,0.25)]"
+        >
+          <span class="material-symbols-outlined text-xl" aria-hidden="true">terminal</span>
+        </div>
+        <div>
+          <h3 class="font-headline-md text-headline-md font-bold text-primary">
+            {{ t.panelTitle }}
+          </h3>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">{{ t.panelIntro }}</p>
+        </div>
+      </div>
+      <span
+        class="px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-400/50 text-blue-400 font-code-stream text-xs font-bold shadow-[0_0_12px_rgba(0,119,255,0.2)]"
+        >10 TECH TILES</span
+      >
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-5 gap-3.5">
+      @for (tile of tiles; track tile.name) {
+        <div
+          class="bg-surface-container/80 border border-blue-500/30 rounded-2xl p-4 text-center transition-all duration-200 group"
+          [class]="tile.tileClass"
+        >
+          <div
+            class="w-10 h-10 mx-auto rounded-full bg-surface-container-high border flex items-center justify-center group-hover:scale-110 transition-transform"
+            [class]="tile.iconClass"
+          >
+            <span class="material-symbols-outlined text-xl" aria-hidden="true">{{
+              tile.icon
+            }}</span>
+          </div>
+          <h4 class="font-headline-md text-sm font-bold text-on-surface mt-2.5">{{ tile.name }}</h4>
+          <p class="font-label-sm text-[10px] text-on-surface-variant">{{ tile.detail }}</p>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    @for (pillar of pillars; track pillar.code; let i = $index) {
+      <div
+        class="bg-surface-container-low/80 border rounded-3xl p-6 sm:p-8 backdrop-blur-sm transition-all duration-300 flex flex-col justify-between space-y-4 shadow-lg"
+        [class]="pillar.cardClass"
+      >
+        <div class="flex items-center gap-4">
+          <div
+            class="w-12 h-12 shrink-0 rounded-2xl border flex items-center justify-center"
+            [class]="pillar.iconClass"
+          >
+            <span class="material-symbols-outlined text-2xl" aria-hidden="true">{{
+              pillar.icon
+            }}</span>
+          </div>
+          <div>
+            <span class="font-code-stream text-xs block" [class]="pillar.codeClass">{{
+              pillar.code
+            }}</span>
+            <h3 class="font-headline-md text-headline-md font-bold text-primary">
+              {{ pillar.title }}
+            </h3>
+            <p
+              class="font-label-sm text-label-sm uppercase font-semibold"
+              [class]="pillar.subtitleClass"
+            >
+              {{ pillar.subtitle }}
+            </p>
+          </div>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          {{ t.pillars[i] }}
+        </p>
+        <div class="flex flex-wrap gap-2 pt-2">
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-highest font-label-sm text-label-sm"
+            [class]="pillar.firstTagClass"
+            >{{ pillar.tags[0] }}</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm"
+            >{{ pillar.tags[1] }}</span
+          >
+          <span
+            class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm"
+            >{{ pillar.tags[2] }}</span
+          >
+        </div>
+      </div>
+    }
+  </div>
+</section>

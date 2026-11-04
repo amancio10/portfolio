@@ -1,0 +1,92 @@
+@let t = language.t().projects;
+
+<section class="space-y-6 scroll-mt-28" id="projects">
+  <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 px-2">
+    <div>
+      <span class="font-code-stream text-code-stream text-blue-400">// COMMITTED_PROJECTS</span>
+      <h2
+        class="font-headline-lg text-headline-lg-mobile sm:text-headline-lg font-bold text-primary"
+      >
+        {{ t.title }}
+      </h2>
+    </div>
+    <a
+      class="font-label-md text-label-md text-blue-400 hover:text-blue-300 hover:underline inline-flex items-center gap-1 transition-colors"
+      [href]="githubUrl + '?tab=repositories'"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <span>{{ t.allRepos }}</span>
+      <span class="material-symbols-outlined text-sm" aria-hidden="true">open_in_new</span>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @for (project of projects; track project.slug) {
+      @let copy = t.items[project.slug];
+      <article
+        class="bg-surface-container-low/80 border border-blue-500/30 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 group"
+        [class]="project.cardClass"
+      >
+        <div class="space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-blue-500/20">
+            <span class="font-code-stream font-bold text-[11px]" [class]="project.repoClass"
+              >amancio10/{{ project.slug }}</span
+            >
+            <span class="w-3 h-3 rounded-full" [class]="project.dotClass"></span>
+          </div>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 shrink-0 rounded-full bg-surface-container-high border flex items-center justify-center group-hover:scale-110 transition-transform"
+              [class]="project.iconClass"
+            >
+              <span class="material-symbols-outlined text-xl" aria-hidden="true">{{
+                project.icon
+              }}</span>
+            </div>
+            <h3
+              class="min-w-0 wrap-anywhere font-headline-md text-headline-md font-bold text-on-surface transition-colors"
+              [class]="project.titleClass"
+            >
+              {{ project.slug }}
+            </h3>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+            {{ copy.description }}
+          </p>
+          <div class="flex flex-wrap gap-1.5 pt-2">
+            <span
+              class="px-2.5 py-1 rounded-full bg-surface-container-high font-label-sm text-label-sm"
+              [class]="project.tagClasses[0]"
+              >{{ copy.tags[0] }}</span
+            >
+            <span
+              class="px-2.5 py-1 rounded-full bg-surface-container-high font-label-sm text-label-sm"
+              [class]="project.tagClasses[1]"
+              >{{ copy.tags[1] }}</span
+            >
+            <span
+              class="px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm"
+              >{{ copy.tags[2] }}</span
+            >
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-blue-500/20 flex items-center justify-between">
+          <span class="font-code-stream text-[11px] text-on-surface-variant">{{
+            copy.footer
+          }}</span>
+          <a
+            class="px-3.5 py-1.5 rounded-full bg-surface-container-high hover:text-white text-on-surface font-label-sm text-label-sm transition-all duration-200 inline-flex items-center gap-1 border border-blue-500/20"
+            [class]="project.linkClass"
+            [href]="githubUrl + '/' + project.slug"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <span>{{ t.viewCode }}</span>
+            <span class="material-symbols-outlined text-xs" aria-hidden="true">code</span>
+          </a>
+        </div>
+      </article>
+    }
+  </div>
+</section>

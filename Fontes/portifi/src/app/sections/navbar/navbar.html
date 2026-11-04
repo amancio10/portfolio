@@ -1,0 +1,83 @@
+@let t = language.t();
+
+<header class="fixed top-4 left-0 right-0 z-50 px-4 sm:px-6">
+  <nav
+    [attr.aria-label]="t.nav.label"
+    class="max-w-7xl mx-auto bg-surface-container-low/90 backdrop-blur-xl border border-blue-500/30 rounded-full px-4 sm:px-6 py-2.5 shadow-[0_0_25px_rgba(0,119,255,0.15)] flex items-center justify-between gap-2 transition-all duration-300"
+  >
+    <a class="flex items-center gap-3 group min-w-0" href="#hero">
+      <div
+        class="w-10 h-10 shrink-0 rounded-full bg-surface-container-high border border-blue-400/60 flex items-center justify-center text-blue-400 group-hover:scale-105 transition-transform duration-200 shadow-[0_0_15px_rgba(0,162,255,0.35)]"
+      >
+        <span class="material-symbols-outlined text-lg" aria-hidden="true">terminal</span>
+      </div>
+      <div class="min-w-0 hidden min-[480px]:block md:hidden xl:block">
+        <span
+          class="font-headline-md font-bold text-primary tracking-tight block text-sm sm:text-base leading-none truncate"
+          >Amâncio A. S. Moura</span
+        >
+        <span
+          class="font-code-stream font-bold text-blue-400 text-[11px] leading-tight block truncate"
+          >Software Engineer | Full Stack</span
+        >
+      </div>
+    </a>
+
+    <div
+      class="hidden md:flex items-center gap-1 bg-surface-container/80 p-1.5 rounded-full border border-blue-500/20"
+    >
+      @for (section of sections; track section) {
+        <a
+          [href]="'#' + section"
+          [attr.aria-current]="activeSection() === section ? 'location' : null"
+          class="px-3 lg:px-4 py-1.5 rounded-full border font-label-md text-label-md whitespace-nowrap transition-colors"
+          [class]="
+            activeSection() === section
+              ? 'text-blue-300 font-semibold bg-blue-600/20 border-blue-400/40 shadow-[0_0_10px_rgba(0,119,255,0.2)]'
+              : 'border-transparent text-on-surface-variant hover:text-blue-300'
+          "
+          >{{ t.nav.sections[section] }}</a
+        >
+      }
+    </div>
+
+    <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+      <div
+        id="lang-switch"
+        role="group"
+        [attr.aria-label]="t.nav.languageLabel"
+        class="flex items-center bg-surface-container-highest/80 rounded-full p-1 border border-blue-500/30"
+      >
+        @for (option of languages; track option.code) {
+          <button
+            type="button"
+            [attr.aria-pressed]="language.current() === option.code"
+            [attr.aria-label]="option.name"
+            [title]="option.name"
+            (click)="language.current.set(option.code)"
+            class="p-1 rounded-full transition-all cursor-pointer"
+            [class]="
+              language.current() === option.code
+                ? 'bg-[#0077ff] shadow-[0_0_10px_rgba(0,119,255,0.5)]'
+                : 'opacity-60 hover:opacity-100'
+            "
+          >
+            <img class="w-5 h-5 rounded-full object-cover" [src]="option.flag" alt="" />
+          </button>
+        }
+      </div>
+
+      <a
+        class="hidden sm:inline-flex md:hidden lg:inline-flex items-center gap-1.5 bg-[#0077ff] hover:bg-[#0091ff] text-white font-headline-md px-4 py-2 rounded-full font-bold text-xs sm:text-sm shadow-[0_0_20px_rgba(0,119,255,0.5)] hover:shadow-[0_0_28px_rgba(0,162,255,0.7)] hover:scale-105 active:scale-95 transition-all duration-200"
+        [href]="linkedinUrl"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <span>{{ t.nav.connect }}</span>
+        <span class="material-symbols-outlined text-sm font-bold" aria-hidden="true"
+          >arrow_forward</span
+        >
+      </a>
+    </div>
+  </nav>
+</header>
