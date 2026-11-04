@@ -1,4 +1,4 @@
-export const CONTACT_EMAIL = 'amancio10@gmail.com';
+export const CONTACT_EMAIL = 'amanciosantos10@gmail.com';
 export const GITHUB_USER = 'amancio10';
 export const GITHUB_URL = `https://github.com/${GITHUB_USER}`;
 export const LINKEDIN_URL = 'https://linkedin.com/in/amancio-santos';
